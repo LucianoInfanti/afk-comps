@@ -8,15 +8,23 @@ const dropdown = ({ multiple, value, alt, options, name, onChange }) => {
   const [highlightedIndex, setHighlightedIndex] = useState(0);
 
   function clearOptions() {
-    onChange(undefined);
+    multiple ? onChange([]) : onChange(undefined);
   }
 
   function selectOption(option) {
-    if (option !== value) onChange(option);
+    if (multiple) {
+      if (value.includes(option)) {
+        onChange(value.filter((o) => o !== option));
+      } else {
+        onChange([...value, option]);
+      }
+    } else {
+      if (option !== value) onChange(option);
+    }
   }
 
   function isOptionSelected(option) {
-    return option === value;
+    return multiple ? value.includes(option) : option === value;
   }
 
   useEffect(() => {
@@ -26,19 +34,40 @@ const dropdown = ({ multiple, value, alt, options, name, onChange }) => {
   return (
     <div
       onBlur={() => setIsOpen(false)}
-      onClick={() => setIsOpen(!isOpen)}
+      onClick={() => setIsOpen((prev) => !prev)}
       className={styles.wrapper}
     >
       <div className={styles.content}>
         <div className={styles.label}>{name}</div>
         <div className={styles.placeholder}>
-          <img
-            src={`/Images/FactionIcon/${value?.label}.png`}
-            alt={alt}
-            width={24}
-            height={24}
-          />
-          {value?.label}
+          {multiple ? (
+            Array.isArray(value) &&
+            value.map((v) => (
+              <button
+                key={v.value}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  selectOption(v);
+                }}
+                className={styles.badge}
+              >
+                <img
+                  src={`/Images/FactionIcon/${v?.label}.png`}
+                  alt={alt}
+                  width={24}
+                  height={24}
+                />
+                <span className={styles["remove-btn"]}>&times;</span>
+              </button>
+            ))
+          ) : (
+            <img
+              src={`/Images/FactionIcon/${value?.label}.png`}
+              alt={alt}
+              width={24}
+              height={24}
+            />
+          )}
         </div>
       </div>
 
