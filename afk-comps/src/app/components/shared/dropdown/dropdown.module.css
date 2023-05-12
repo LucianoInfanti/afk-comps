@@ -1,0 +1,16 @@
+.wrapper{
+	background-color: #29282D;
+	padding: 24px;
+	width: 275px;
+	border-radius: 12px;
+}
+
+.label {
+	text-transform: uppercase;
+font-size: 0.8rem;
+}
+
+.placeholder {
+ opacity: 0.4;
+
+}
