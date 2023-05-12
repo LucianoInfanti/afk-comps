@@ -1,30 +1,20 @@
-"use Client";
-
 import styles from "./dropdown.module.css";
 import { useEffect, useState } from "react";
 
-const dropdown = ({ multiple, value, alt, options, name, onChange }) => {
+const dropdown = ({ value, alt, options, name, onChange }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [highlightedIndex, setHighlightedIndex] = useState(0);
 
   function clearOptions() {
-    multiple ? onChange([]) : onChange(undefined);
+    onChange(undefined);
   }
 
   function selectOption(option) {
-    if (multiple) {
-      if (value.includes(option)) {
-        onChange(value.filter((o) => o !== option));
-      } else {
-        onChange([...value, option]);
-      }
-    } else {
-      if (option !== value) onChange(option);
-    }
+    if (option !== value) onChange(option);
   }
 
   function isOptionSelected(option) {
-    return multiple ? value.includes(option) : option === value;
+    return option === value;
   }
 
   useEffect(() => {
@@ -34,40 +24,19 @@ const dropdown = ({ multiple, value, alt, options, name, onChange }) => {
   return (
     <div
       onBlur={() => setIsOpen(false)}
-      onClick={() => setIsOpen((prev) => !prev)}
+      onClick={() => setIsOpen(!isOpen)}
       className={styles.wrapper}
     >
       <div className={styles.content}>
         <div className={styles.label}>{name}</div>
         <div className={styles.placeholder}>
-          {multiple ? (
-            Array.isArray(value) &&
-            value.map((v) => (
-              <button
-                key={v.value}
-                onClick={(e) => {
-                  e.stopPropagation();
-                  selectOption(v);
-                }}
-                className={styles.badge}
-              >
-                <img
-                  src={`/Images/FactionIcon/${v?.label}.png`}
-                  alt={alt}
-                  width={24}
-                  height={24}
-                />
-                <span className={styles["remove-btn"]}>&times;</span>
-              </button>
-            ))
-          ) : (
-            <img
-              src={`/Images/FactionIcon/${value?.label}.png`}
-              alt={alt}
-              width={24}
-              height={24}
-            />
-          )}
+          <img
+            src={`/Images/FactionIcon/${value?.label}.png`}
+            alt={alt}
+            width={24}
+            height={24}
+          />
+          {value?.label}
         </div>
       </div>
 
@@ -101,7 +70,7 @@ const dropdown = ({ multiple, value, alt, options, name, onChange }) => {
 				`}
           >
             <img
-              src={`/Images/FactionIcon/${option?.value}.png`}
+              src={`/Images/FactionIcon/${option.label}.png`}
               alt={alt}
               width={24}
               height={24}

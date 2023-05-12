@@ -44,7 +44,6 @@ const Home = () => {
     },
   ];
 
-  const [value1, setValue1] = useState([options[0]]);
   const [value, setValue] = useState(options[0]);
 
   return (
@@ -54,9 +53,9 @@ const Home = () => {
       </Head>
 
       <Dropdown
-      multiple
+        multiple
         name={"Faction"}
-        value={value1}
+        value={value}
         options={options}
         alt={"label"}
         onChange={(o) => setValue(o)}
