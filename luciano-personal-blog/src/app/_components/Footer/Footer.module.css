@@ -1,0 +1,22 @@
+.wrapper {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    bottom: 32px;
+    font-family: 'NyghtSerif-Italic';
+}
+
+.comma {
+    margin-right: 4px;
+    margin-left: 2px;
+}
+
+li:last-child .comma {
+    display: none;
+
+}
+
+.li_wrapper {
+    display: flex;
+}

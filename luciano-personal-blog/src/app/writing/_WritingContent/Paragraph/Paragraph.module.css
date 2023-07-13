@@ -1,0 +1,9 @@
+.wrapper {
+    font-size: 20px;
+    font-family: 'AGNext';
+    line-height: 32px;
+    max-width: 640px;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 32px;
+}

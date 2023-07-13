@@ -1,0 +1,14 @@
+.wrapper {
+    font-family: 'NyghtSerif-Italic';
+    color: #969076;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 4px;
+	transition: color 0.4s, text-decoration-color 0.4s; 
+}
+
+.wrapper:hover {
+    cursor: pointer;
+    color: #EFECCE;
+    text-decoration-color: #EFECCE;
+}

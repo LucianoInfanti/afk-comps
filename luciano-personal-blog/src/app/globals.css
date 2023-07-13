@@ -1,0 +1,130 @@
+@font-face {
+  font-family: 'NyghtSerif';
+  src: url('/Fonts/NyghtSerif/NyghtSerif-Light.otf');
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'NyghtSerif-Italic';
+  src: url('/Fonts/NyghtSerif/NyghtSerif-LightItalic.otf');
+  font-weight: 100;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'AGNext';
+  src: url('/Fonts/AGNext/AGNextLight.otf');
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: AGNext-Italic;
+  src: url('/Fonts/AGNext/AGNextLightIta.otf');
+  font-weight: 100;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: AGNext-Medium;
+  src: url('/Fonts/AGNext/AGNextMedium.otf');
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: FiraCode;
+  src: url('/Fonts/FiraCode/FiraCode-Regular.ttf');
+  font-weight: 100;
+  font-style: normal;
+}
+/* 
+* {
+  outline: 1px solid #384842;
+} */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+:root {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  isolation: isolate;
+  font-smooth: always;
+  text-rendering: optimizeSpeed;
+  font-family: 'NyghtSerif';
+  font-weight: 100;
+}
+
+body,
+html {
+  background-color: #2D3E38;
+  color: #EFECCE;
+  font-weight: 100;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.4s;
+}
+
+a:hover {
+  color: #969076;
+}
+
+ol,
+ul,
+ul,
+li {
+  list-style: none;
+}
+/* 
+p {
+	font-size: 20px;
+	line-height: 32px;
+  font-family: 'AGNext';
+  max-width: 500px;
+
+}
+
+p, p {
+  margin-bottom:32px;
+} */

@@ -1,0 +1,36 @@
+.Wrapper {
+	position: fixed;
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+	top: 2rem;
+	padding-left: 2rem;
+	padding-right: 2rem;
+	font-family: 'NyghtSerif-Italic';
+  }
+  
+  .Links {
+	position: fixed;
+	left: 50%;
+	transform: translate(-50%);
+  }
+  
+  .Theme {
+	width: 8px;
+	height: 8px;
+	background-color: #EFECCE;
+	border-radius: 50%;
+  }
+  
+  .Theme:hover{
+	 
+  }
+  
+  .DashActive {
+	position: absolute;
+	top: 12px;
+	width: 49px;
+	height: 1px;
+	background-color: #EFECCE;
+	mix-blend-mode: difference;
+  }
